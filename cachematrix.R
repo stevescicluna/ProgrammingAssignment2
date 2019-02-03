@@ -2,10 +2,10 @@
 
 makeCacheMatrix <- function(x = matrix()) {
         makeVector <- function(x = numeric()) {
-                m <- NULL
+                inv <- NULL
                 set <- function(y) {
                         x <<- y
-                        m <<- NULL
+                        inv <<- NULL
                 }
                 get <- function() x
                 ## copied in makeVector function example and changed mean function and m to inverse function and inv
@@ -22,8 +22,8 @@ makeCacheMatrix <- function(x = matrix()) {
 ## If the inverse has already been calculated (and the matrix has not changed), then the cachesolve should retrieve the inverse from the cache
 
 cacheSolve <- function(x, ...) {
-        ## copied in makeVector function example and changed mean function and m to inverse function and inv
-        m <- x$getinverse()
+        ## copied in cachemean function example and changed mean function and m to inverse function and inv
+        inv <- x$getinverse()
         if(!is.null(inv)) {
                 message("getting cached data")
                 return(inv)
